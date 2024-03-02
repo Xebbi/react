@@ -2,10 +2,9 @@
 
 import './App.css';
 import { useState } from 'react'
+import Title from "./components/Title"
 
 function App() {
-  const [name, setName] = useState('John')
-
   const [showContent, setShowContent] = useState(true)
 
   const [events, setEvents] = useState([
@@ -14,9 +13,7 @@ function App() {
     {title: "John last name is Doe", id: 3},
   ])
 
-  const handleClick = () => {
-    setName('Doe')
-  }
+ 
 
   const handleDelete = (id) => {
     const filteredEvents = events.filter((event) => {
@@ -26,11 +23,7 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>My name is {name}</h1>
-      <button onClick={handleClick}>Change name</button>
-      <hr />
-      <br />
-
+    <Title/>   
       {showContent && <button onClick={() => setShowContent(false)}>Toggle</button>}
       {!showContent && <button onClick={() => setShowContent(true)}>Toggle</button>}
       {showContent && events.map((event) => {
